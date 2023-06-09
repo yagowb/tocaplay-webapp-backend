@@ -1,0 +1,25 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "src/index.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      { "src": "/", "dest": "src/index.js" },
+      { "src": "/usuarios/usuarios", "dest": "src/index.js" },
+      { "src": "/playlists", "dest": "src/index.js" },
+      { "src": "/musicas", "dest": "src/index.js" },
+      { "src": "/playlistsPrivadas/playlistsPrivadas", "dest": "src/index.js" },
+      { "src": "/playlistsPrivadas/:id", "dest": "src/index.js" },
+      { "src": "/playlistsPrivadas", "dest": "src/index.js" },
+      { "src": "/musicas/:id", "dest": "src/index.js" },
+      { "src": "/playlists/:id", "dest": "src/index.js" },
+      { "src": "/usuarios", "dest": "src/index.js" },
+      { "src": "/usuarios/:id", "dest": "src/index.js" },
+      { "src": "/usuarios/:id/playlistsPrivadas", "dest": "src/index.js" },
+      { "src": "/playlistsPrivadas/:playlistId", "dest": "src/index.js" }
+    ]
+  }
+  
