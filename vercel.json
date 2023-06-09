@@ -10,6 +10,7 @@
     {
       "src": "/",
       "dest": "src/index.js",
+      "methods": ["GET", "OPTIONS", "PATCH", "DELETE", "POST", "PUT"],
       "headers": {
         "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Origin": "*",
@@ -20,6 +21,7 @@
     {
       "src": "/usuarios/usuarios",
       "dest": "src/index.js",
+      "methods": ["GET", "OPTIONS", "PATCH", "DELETE", "POST", "PUT"],
       "headers": {
         "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Origin": "*",
@@ -30,6 +32,7 @@
     {
       "src": "/playlists",
       "dest": "src/index.js",
+      "methods": ["GET", "OPTIONS", "PATCH", "DELETE", "POST", "PUT"],
       "headers": {
         "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Origin": "*",
@@ -40,6 +43,7 @@
     {
       "src": "/musicas",
       "dest": "src/index.js",
+      "methods": ["GET", "OPTIONS", "PATCH", "DELETE", "POST", "PUT"],
       "headers": {
         "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Origin": "*",
@@ -50,6 +54,7 @@
     {
       "src": "/playlistsPrivadas/playlistsPrivadas",
       "dest": "src/index.js",
+      "methods": ["GET", "OPTIONS", "PATCH", "DELETE", "POST", "PUT"],
       "headers": {
         "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Origin": "*",
@@ -60,6 +65,7 @@
     {
       "src": "/playlistsPrivadas/:id",
       "dest": "src/index.js",
+      "methods": ["GET", "OPTIONS", "PATCH", "DELETE", "POST", "PUT"],
       "headers": {
         "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Origin": "*",
@@ -70,6 +76,7 @@
     {
       "src": "/playlistsPrivadas",
       "dest": "src/index.js",
+      "methods": ["GET", "OPTIONS", "PATCH", "DELETE", "POST", "PUT"],
       "headers": {
         "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Origin": "*",
@@ -80,6 +87,7 @@
     {
       "src": "/musicas/:id",
       "dest": "src/index.js",
+      "methods": ["GET", "OPTIONS", "PATCH", "DELETE", "POST", "PUT"],
       "headers": {
         "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Origin": "*",
@@ -90,6 +98,7 @@
     {
       "src": "/playlists/:id",
       "dest": "src/index.js",
+      "methods": ["GET", "OPTIONS", "PATCH", "DELETE", "POST", "PUT"],
       "headers": {
         "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Origin": "*",
@@ -100,6 +109,7 @@
     {
       "src": "/usuarios",
       "dest": "src/index.js",
+      "methods": ["GET", "OPTIONS", "PATCH", "DELETE", "POST", "PUT"],
       "headers": {
         "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Origin": "*",
@@ -110,6 +120,7 @@
     {
       "src": "/usuarios/:id",
       "dest": "src/index.js",
+      "methods": ["GET", "OPTIONS", "PATCH", "DELETE", "POST", "PUT"],
       "headers": {
         "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Origin": "*",
@@ -120,6 +131,7 @@
     {
       "src": "/usuarios/:id/playlistsPrivadas",
       "dest": "src/index.js",
+      "methods": ["GET", "OPTIONS", "PATCH", "DELETE", "POST", "PUT"],
       "headers": {
         "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Origin": "*",
@@ -130,6 +142,7 @@
     {
       "src": "/playlistsPrivadas/:playlistId",
       "dest": "src/index.js",
+      "methods": ["GET", "OPTIONS", "PATCH", "DELETE", "POST", "PUT"],
       "headers": {
         "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Origin": "*",
