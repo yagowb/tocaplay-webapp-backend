@@ -11,8 +11,10 @@ app.use(cors({
   origin: 'https://tocaplay-webapp-frontend-dy2v97es4-yagowb.vercel.app'
 }));
 
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
+
+app.use(function (request, response, next) {
+  response.header("Access-Control-Allow-Origin", "*");
+  response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
 
