@@ -1,5 +1,5 @@
 const express = require('express');
-const cors = require('cors')
+const cors = require('cors');
 const { ObjectId } = require('mongodb');
 const client = require('./db');
 
@@ -7,14 +7,8 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-  origin: '*'
+  origin: 'https://tocaplay-webapp-frontend-dy2v97es4-yagowb.vercel.app'
 }));
-
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://tocaplay-webapp-frontend.vercel.app');
-  next();
-});
-
 
 
 /*==============*/
