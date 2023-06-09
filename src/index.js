@@ -6,6 +6,7 @@ const client = require('./db');
 const app = express();
 
 app.use(express.json());
+
 app.use(cors({
   origin: 'https://tocaplay-webapp-frontend-dy2v97es4-yagowb.vercel.app'
 }));
@@ -14,6 +15,7 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   next();
 });
+
 
 app.use((req, res) => {
   res.status(404).json({ error: 'Endpoint não encontrado' });
