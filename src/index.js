@@ -10,6 +10,12 @@ app.use(cors({
   origin: '*'
 }));
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://tocaplay-webapp-frontend.vercel.app');
+  next();
+});
+
+
 
 /*==============*/
 /*    ROTAS     */
@@ -25,15 +31,15 @@ app.get('/', (req, res) => {
 app.get('/usuarios/usuarios', async (req, res) => {
   await client.connect();
   const usuarios = await client.db("spotify").collection("usuarios").find().toArray();
-  res.setHeader('Access-Control-Allow-Origin', '*'); 
   res.json(usuarios)
 });
+
+
 
 // LISTAR PLAYLISTS PÚBLICAS
 app.get('/playlists', async (req, res) => {
   await client.connect();
   const publicPlaylists = await client.db("spotify").collection("playlists").find().toArray();
-  res.setHeader('Access-Control-Allow-Origin', '*'); 
   res.json(publicPlaylists);
 });
 
@@ -41,8 +47,6 @@ app.get('/playlists', async (req, res) => {
 app.get('/musicas', async (req, res) => {
   await client.connect();
   const musicas = await client.db("spotify").collection("musicas").find().toArray();
-  
-  res.setHeader('Access-Control-Allow-Origin', '*'); 
   res.json(musicas);
 });
 
@@ -50,8 +54,6 @@ app.get('/musicas', async (req, res) => {
 app.get('/playlistsPrivadas/playlistsPrivadas', async (req, res) => {
   await client.connect();
   const privatePlaylists = await client.db("spotify").collection("playlistsPrivadas").find().toArray();
-  
-  res.setHeader('Access-Control-Allow-Origin', '*'); 
   res.json(privatePlaylists);
 });
 
@@ -66,7 +68,6 @@ app.get('/playlistsPrivadas/:id', async (req, res) => {
     return res.status(404).json({ error: 'Playlist privada não encontrada!' });
   }
   
-  res.setHeader('Access-Control-Allow-Origin', '*'); 
   res.status(200).json(privatePlaylists);
 });
 
@@ -77,8 +78,6 @@ app.get('/playlistsPrivadas', async (req, res) => {
   const { idUsuario } = req.query;
   await client.connect();
   const privatePlaylists = await client.db("spotify").collection("playlistsPrivadas").find({ idUsuario: idUsuario }).toArray();
-  
-  res.setHeader('Access-Control-Allow-Origin', '*'); 
   res.json(privatePlaylists);
   
 });
@@ -88,8 +87,6 @@ app.get('/musicas/:id', async (req, res) => {
   await client.connect();
   const { id } = req.params;
   const publicPlaylists = await client.db("spotify").collection("musicas").findOne({ _id: new ObjectId(id) }) ;
-  
-  res.setHeader('Access-Control-Allow-Origin', '*'); 
   res.json(publicPlaylists);
 });
 
@@ -104,7 +101,6 @@ app.get('/playlists/:id', async (req, res) => {
     return res.status(404).json({ error: 'Playlist não encontrada!' });
   }
 
-  res.setHeader('Access-Control-Allow-Origin', '*'); // Adicionando o cabeçalho
   res.status(200).json(playlist);
 });
 
@@ -122,7 +118,6 @@ app.get('/musicas', async (req, res) => {
       return res.status(404).json({ error: 'Música não encontrada.' });
     }
   
-    res.setHeader('Access-Control-Allow-Origin', '*'); 
     res.status(200).json(resultadosFiltrados);
 });
 
@@ -143,7 +138,6 @@ app.post('/usuarios', async (req, res) => {
 
   await client.db("spotify").collection("usuarios").insertOne(novoUsuario);
 
-  res.setHeader('Access-Control-Allow-Origin', '*'); 
   res.status(200).json(novoUsuario);
 });
 
@@ -164,7 +158,6 @@ app.get('/usuarios', async (req, res) => {
     return res.status(401).json({ error: 'Credenciais inválidas.' });
   }
 
-  res.setHeader('Access-Control-Allow-Origin', '*'); 
   res.status(200).json(usuario);
 });
 
@@ -196,7 +189,6 @@ app.patch('/usuarios/:id', async (req, res) => {
 
   const usuarioAtualizado = await client.db("spotify").collection("usuarios").findOne({ _id: new ObjectId(id) });
 
-  res.setHeader('Access-Control-Allow-Origin', '*'); 
   res.status(200).json(usuarioAtualizado);
 });
 
@@ -222,7 +214,6 @@ app.post('/usuarios/:id/playlistsPrivadas', async (req, res) => {
 
   const playlistsPrivadasAtualizadas = await client.db("spotify").collection("playlistsPrivadas").find().toArray();
 
-  res.setHeader('Access-Control-Allow-Origin', '*'); 
   res.status(200).json(playlistsPrivadasAtualizadas);
 });
 
@@ -249,7 +240,6 @@ app.patch('/playlistsPrivadas/:playlistId', async (req, res) => {
 
   const playlistPrivadaAtualizada = await client.db("spotify").collection("playlistsPrivadas").findOne({ _id: new ObjectId(playlistId) });
 
-  res.setHeader('Access-Control-Allow-Origin', '*'); 
   res.status(200).json(playlistPrivadaAtualizada);
 });
 
