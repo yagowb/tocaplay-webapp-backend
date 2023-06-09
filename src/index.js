@@ -48,13 +48,22 @@ app.get('/playlistsPrivadas/playlistsPrivadas', async (req, res) => {
   res.json(privatePlaylists);
 });
 
+
 // LISTAR PLAYLISTS PRIVADAS POR ID
 app.get('/playlistsPrivadas/:id', async (req, res) => {
   const { id } = req.params;
   await client.connect();
   const privatePlaylists = await client.db("spotify").collection("playlistsPrivadas").findOne({ _id: new ObjectId(id) });
-  res.json(privatePlaylists);
+  
+  if (!privatePlaylists) {
+    return res.status(404).json({ error: 'Playlist privada não encontrada!' });
+  }
+  
+  res.setHeader('Access-Control-Allow-Origin', '*'); 
+  res.status(200).json(privatePlaylists);
 });
+
+
 
 // LISTAR PLAYLISTS PRIVADAS POR ID DO USUARIO
 app.get('/playlistsPrivadas', async (req, res) => {
@@ -83,9 +92,9 @@ app.get('/playlists/:id', async (req, res) => {
     return res.status(404).json({ error: 'Playlist não encontrada!' });
   }
 
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Adicionando o cabeçalho
   res.status(200).json(playlist);
 });
-
 
 
 //BUSCAR MÚSICAS
