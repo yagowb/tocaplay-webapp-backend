@@ -1,24 +1,22 @@
 const express = require('express');
 const cors = require('cors')
-const client = require('./db');
-const app = express();
 const { ObjectId } = require('mongodb');
+const client = require('./db');
 
-
-
+const app = express();
 
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 
 
 /*==============*/
 /*    ROTAS     */
 /*==============*/
 
-
+//ROTA RAIZ
 app.get('/', (req, res) => {
   res.json('Backend TocaPlay');
-})
+});
 
 
 //LISTAR TODOS OS USUÁRIOS
@@ -26,7 +24,7 @@ app.get('/usuarios/usuarios', async (req, res) => {
   await client.connect();
   const usuarios = await client.db("spotify").collection("usuarios").find().toArray();
   res.json(usuarios)
-})
+});
 
 // LISTAR PLAYLISTS PÚBLICAS
 app.get('/playlists', async (req, res) => {
@@ -103,7 +101,7 @@ app.get('/musicas', async (req, res) => {
     }
   
     res.status(200).json(resultadosFiltrados);
-})
+});
 
 
 
@@ -233,5 +231,5 @@ app.patch('/playlistsPrivadas/:playlistId', async (req, res) => {
 //INICIANDO SERVIDOR
 const port = 3001;
 app.listen(port, () => {
-  console.log(`Servidor rodando na porta ${port}`)
+  console.log(`Servidor rodando na porta ${port}`);
 });
