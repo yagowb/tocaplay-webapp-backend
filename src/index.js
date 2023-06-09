@@ -8,9 +8,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use(cors({
-  origin: 'https://tocaplay-webapp-frontend-cc0779006-yagowb.vercel.app'
-}));
 
 
 /*==============*/
