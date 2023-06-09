@@ -7,10 +7,6 @@ const app = express();
 
 app.use(express.json());
 
-app.use(cors({
-  origin: 'https://tocaplay-webapp-frontend-dy2v97es4-yagowb.vercel.app'
-}));
-
 
 app.use(function (request, response, next) {
   response.header("Access-Control-Allow-Origin", "*");
